@@ -40,11 +40,10 @@ let themes = [
 ];
 
 themes.forEach((item) => {
-  mix.sass(item, 'public/css/themes').version();
+  mix.sass(item, 'public/css/themes');
 })
 
 mix.js('resources/assets/js/app.js', 'public/js')
   .sass('resources/assets/sass/app.scss', 'public/css')
   .js('resources/assets/js/home.js', 'public/js')
-  .sass('resources/assets/sass/home.scss', 'public/css')
-  .version();
+  .sass('resources/assets/sass/home.scss', 'public/css');

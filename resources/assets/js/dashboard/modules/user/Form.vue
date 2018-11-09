@@ -1,7 +1,7 @@
 <template>
   <div class="row">
-    <form class="form col-md-4 offset-md-4" role="form" @submit.prevent="onSubmit">
-      <div class="form-group text-center">
+    <form class="form col-md-5" role="form" @submit.prevent="onSubmit">
+      <div class="form-group text-left">
         <img :src="user.avatar ? user.avatar : '/images/default.png'" id="avatar" class="rounded-circle" width="100" :alt="user.name">
       </div>
       <div class="form-group">
@@ -34,6 +34,16 @@
           <input type="password" class="form-control" id="password_confirmation" :placeholder="$t('form.confirm_password')" name="password_confirmation" v-model="user.password_confirmation">
         </div>
       </template>
+      <div class="form-group">
+        <label for="role">Role</label>
+        <select id="role" class="form-control" name="role" v-model="user.role">
+          <option value="subscribe">Subscribe</option>
+          <option value="teacher">Instructor</option>
+          <option value="contributor">Contributor</option>
+          <option value="editor">Editor</option>
+          <option value="administrator">Admin</option>
+        </select>
+      </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">{{ user.id ? $t('form.edit') : $t('form.create') }}</button>
       </div>

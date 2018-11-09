@@ -20,6 +20,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'status'         => true,
         'confirm_code'   => str_random(64),
         'password'       => $password ?: $password = bcrypt('secret'),
+        'role'           => 'subscribe',
         'remember_token' => str_random(10),
     ];
 });
@@ -41,15 +42,15 @@ $factory->define(App\Category::class, function (Faker\Generator $faker) {
 $factory->define(App\Article::class, function (Faker\Generator $faker) {
     $user_ids = \App\User::pluck('id')->random();
     $category_ids = \App\Category::pluck('id')->random();
-    $title = $faker->sentence(mt_rand(3,10));
+    $title = $faker->sentence(mt_rand(3, 10));
     return [
-        'user_id'      => $user_ids,
-        'category_id'  => $category_ids,
-        'last_user_id' => $user_ids,
-        'slug'     => str_slug($title),
-        'title'    => $title,
-        'subtitle' => strtolower($title),
-        'content'  => $faker->paragraph,
+        'user_id'          => $user_ids,
+        'category_id'      => $category_ids,
+        'last_user_id'     => $user_ids,
+        'slug'             => str_slug($title),
+        'title'            => $title,
+        'subtitle'         => strtolower($title),
+        'content'          => $faker->paragraph,
         'page_image'       => $faker->imageUrl(),
         'meta_description' => $faker->sentence,
         'is_draft'         => false,
@@ -81,10 +82,10 @@ $factory->define(App\Comment::class, function (Faker\Generator $faker) {
     $discussion_ids = \App\Discussion::pluck('id')->random();
     $type = ['discussions', 'articles'];
     return [
-        'user_id'             => $user_ids,
-        'commentable_type'    => $type[mt_rand(0, 1)],
-        'commentable_id'      => $discussion_ids,
-        'content'             => $faker->paragraph
+        'user_id'          => $user_ids,
+        'commentable_type' => $type[mt_rand(0, 1)],
+        'commentable_id'   => $discussion_ids,
+        'content'          => $faker->paragraph
     ];
 });
 

@@ -9,6 +9,7 @@ import { routes as system } from './modules/system'
 import { routes as tag } from './modules/tag'
 import { routes as user } from './modules/user'
 import { routes as visitor } from './modules/visitor'
+import { routes as product } from './modules/product'
 
 export default [{
   path: '/dashboard',
@@ -26,6 +27,7 @@ export default [{
     ...file,
     ...visitor,
     ...system,
+    ...product,
   ],
 }]
 

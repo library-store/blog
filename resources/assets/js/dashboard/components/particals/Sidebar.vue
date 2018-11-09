@@ -15,7 +15,7 @@
           <a href="/setting"><i class="fas fa-cog"></i></a>
         </div>
       </div>
-      <li v-for="menu in menus">
+      <li v-for="menu in menus" :key="menu.id">
         <router-link :to="menu.uri">
           <i :class="menu.icon"></i> {{ $t(menu.label) }}
         </router-link>
